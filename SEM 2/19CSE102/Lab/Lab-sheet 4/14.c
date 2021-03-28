@@ -21,7 +21,7 @@ int main()
 			count ++;
 			f = f/10;
 		}
-		printf("%d\n", count);
+		//printf("%d\n", count);
 		div(n, count);
 	}
 	return 0;
