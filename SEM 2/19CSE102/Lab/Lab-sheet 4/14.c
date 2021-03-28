@@ -1,96 +1,91 @@
-#include<stdio.h>
-#include<math.h>
+#include <stdio.h>
+#include <math.h>
 
+void pr(int x);
+void div(int n, int count);
 
-    
-char* num_word(int n)
+int main()
+{
+	int n, f;
+	int count = 0;
+	scanf("%d", &n);
+	if(n<100 || n> 9999)
+	{
+		printf("Invalid Input");
+	}
+	else
+	{
+		f = n;
+		while(f != 0)
+		{
+			count ++;
+			f = f/10;
+		}
+		printf("%d\n", count);
+		div(n, count);
+	}
+	return 0;
+}
 
-    { 
-        //printf("Num word called \n");
-        switch(n)
+void div(int n, int count)
+{
+	int x, j;
+	j = pow(10, count-1);
+	//printf("n is %d\n", n);
+	for(int i = 0; i < count; i++)
+	{
+		x = n/j;
+		//printf("x is %d\n", x);
+		pr(x);
+		n = n - x*j;
+		j = j/10;
+		//printf("j is %d\n", j);
+	}
+}
+
+void pr(int x)
+{
+	switch(x)
         {
         case 0:
-            return "Zero"; 
+             printf("Zero "); 
             break;
         
         case 1: 
-            return "One"; 
+             printf("One "); 
             break; 
 
         case 2: 
-            return "Two"; 
+            printf("Two "); 
             break; 
 
         case 3: 
-            return "Three"; 
+            printf("Three "); 
             break; 
 
         case 4:
-            return "Four";
+            printf("Four ");
             break; 
 
         case 5: 
-            return "Five"; 
+            printf("Five "); 
             break; 
         
         case 6:
-            return "Six"; 
+            printf("Six "); 
             break;
         
         case 7: 
-            return "Seven";
+            printf("Seven ");
             break;
         
         case 8: 
-            return "Eight"; 
+            printf("Eight "); 
             break; 
         
         case 9: 
-            return "Nine"; 
+            printf("Nine "); 
             break; 
-        default:
-            return "Invalid";
+
         }
-     } 
-
-void digit_word(int n)
-{
-    
-       
-       if (n<=9999 && n>=100)
-       {
-        int o,t,h;
-        o = n%10;
-        n = floor(n/10);
-        t = n%10; 
-        n = floor(n/10);
-        h = n%10;
-        n = floor(n/10); 
-       if(n>0)
-        {
-            int thou;
-            thou = n%10;
-            printf("%s ", num_word(thou));
-          }
-        printf("%s ", num_word(h));
-        printf("%s ", num_word(t));
-        printf("%s \n", num_word(o));
-        
-       }
-        
-    }
-    
-int main()
-{ 
-   
-
- int n; 
-
-scanf("%d", &n);
-//printf("%s", num_word(n));
-digit_word(n); 
-//printf("%s", num_word(1));
-return 0 ;
-
-
 }
